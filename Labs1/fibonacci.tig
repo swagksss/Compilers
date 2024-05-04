@@ -1,0 +1,12 @@
+let
+    function fibonacci(n: int): int =
+        if n = 0 then
+            1
+        else if n = 1 then
+            1
+        else
+            fibonacci(n-1) + fibonacci(n-2)
+
+    in
+        fibonacci(10) (* You can replace 10 with any value for nth term you want to compute *)
+end

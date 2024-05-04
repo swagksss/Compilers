@@ -1,0 +1,6 @@
+let
+    function print_string(s: string) =
+        print(s)
+    in
+        print_string("Hello World!\n")
+end

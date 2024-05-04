@@ -1,0 +1,37 @@
+let
+    /* Read a positive integer from the standard input.
+       Returns -1 on error */
+    function read_unsigned() : int =
+        let
+            function is_digit(c: string): bool =
+                ord("0") <= ord(c) andalso ord(c) <= ord("9")
+
+            function read_line_acc(acc: int): int =
+                let
+                    val c = getchar()
+                in
+                    if c = "" then  (* EOF reached *)
+                        if acc = 0 then
+                            -1
+                        else
+                            acc
+                    else if c = "\n" then
+                        if acc = 0 then
+                            -1
+                        else
+                            acc
+                    else if is_digit(c) then
+                        read_line_acc(acc * 10 + (ord(c) - ord("0")))
+                    else
+                        -1
+                end
+
+        in
+            read_line_acc(0)
+        end
+
+    var a : int := read_unsigned()
+in
+    print_int(a*2);
+    print("\n")
+end
